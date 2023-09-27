@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "拡張機能スターターキット",
+  "short_name": "スターターキット",
+  "description": "Vite, React, TypeScript, Redux, Tailwind CSSを用いた拡張機能スターターキットです",
+  "version": "0.1",
+  "version_name": "0.1 alpha",
+  "icons": {
+    "16": "images/icons/16.png",
+    "32": "images/icons/32.png",
+    "48": "images/icons/48.png",
+    "128": "images/icons/128.png"
+  },
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_title": "example",
+    "default_icon": "images/icons/32.png"
+  },
+  "offline_enabled": false,
+  "content_scripts": [
+    {
+      "js": ["src/views/content.tsx"],
+      "matches": ["https://www.google.com/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "pages/options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["js/*", "images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/api/*"
+  ],
+  "permissions": ["storage", "activeTab", "tabs", "scripting", "contextMenus", "notifications", "alarms"]
+}
