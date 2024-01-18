@@ -1,4 +1,4 @@
-import { NOTIFICATION_PRIORITY } from "../constants/chrome";
+import { NOTIFICATION_PRIORITY } from "@/constants/chrome";
 
 /**
  * バッジテキストを書き込む

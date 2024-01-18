@@ -1,6 +1,6 @@
 import axios from "axios";
-import { getEnv } from "../utils/envUtil";
-import { API_BEARER_TOKEN, API_ENDPOINT, API_TIMEOUT } from "../constants/env";
+import { getEnv } from "@/utils/envUtil";
+import { API_BEARER_TOKEN, API_ENDPOINT, API_TIMEOUT } from "@/constants/env";
 
 /**
  * GETリクエストを送信する

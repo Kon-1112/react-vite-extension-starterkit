@@ -1,10 +1,9 @@
-// noinspection JSUnusedGlobalSymbols
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { crx } from '@crxjs/vite-plugin'
 import manifest from './manifest.json'
 import { resolve } from 'path';
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
     build: {
@@ -19,6 +18,7 @@ export default defineConfig({
     },
     plugins: [
         react(),
+        tsconfigPaths(),
         crx({ manifest }),
     ],
-})
+});

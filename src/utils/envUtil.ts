@@ -1,4 +1,4 @@
-import { APP_DEBUG, APP_ENV } from "../constants/env";
+import { APP_DEBUG, APP_ENV } from "@/constants/env";
 
 /**
  * 環境変数を取得する

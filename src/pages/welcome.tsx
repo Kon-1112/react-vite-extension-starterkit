@@ -1,9 +1,9 @@
 import React from "react";
-import * as ReactDOM from "react-dom/client";
-import "../../index.scss";
-import { moveDashboard, moveOptions } from "../utils/locationUtil";
-import { getEnv } from "../utils/envUtil";
-import { APP_DESCRIPTION, APP_NAME } from "../constants/env";
+import ReactDOM from "react-dom/client";
+import "../../global.scss";
+import { moveDashboard, moveOptions } from "@/utils/locationUtil";
+import { getEnv } from "@/utils/envUtil";
+import { APP_DESCRIPTION, APP_NAME } from "@/constants/env";
 
 document.body.appendChild(document.createElement("div"));
 const appContainer: HTMLElement | null = document.querySelector("div");

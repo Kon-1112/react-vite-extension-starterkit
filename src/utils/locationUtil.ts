@@ -1,4 +1,4 @@
-import { DASHBOARD_PAGE, OPTIONS_PAGE, WELCOME_PAGE } from "../constants/page";
+import { DASHBOARD_PAGE, OPTIONS_PAGE, WELCOME_PAGE } from "@/constants/page";
 import { isDebug } from "./envUtil";
 
 /**

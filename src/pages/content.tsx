@@ -1,13 +1,13 @@
 import React from "react";
-import * as ReactDOM from "react-dom/client";
-import "../../index.scss";
+import ReactDOM from "react-dom/client";
 
 const root: HTMLDivElement = document.createElement("div");
-root.id = "crx-root";
+root.id = "extension-root";
 document.body.appendChild(root);
 
-ReactDOM.createRoot(root).render(
-  <React.StrictMode>
-    <h1>CONTENT</h1>
-  </React.StrictMode>,
-);
+ReactDOM.createRoot(root)
+  .render(
+    <React.Fragment>
+      <h1>CONTENT</h1>
+    </React.Fragment>
+  );
