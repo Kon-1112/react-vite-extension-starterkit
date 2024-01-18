@@ -1,6 +1,7 @@
-import {moveDashboard, moveOptions, moveWelcome} from "./utils/locationUtils";
-import {NOTIFICATION_PRIORITY, sendNotification} from "./utils/chromeUtils";
-import {getNow} from "./utils/dateTimeUtils";
+import { moveDashboard, moveOptions, moveWelcome } from "./utils/locationUtil";
+import { sendNotification } from "./service/chromeService";
+import { getNow } from "./utils/dateUtil";
+import { NOTIFICATION_PRIORITY } from "./constants/chrome";
 
 chrome.runtime.onInstalled.addListener(
   (details: chrome.runtime.InstalledDetails): void => {
@@ -11,9 +12,9 @@ chrome.runtime.onInstalled.addListener(
     } else if (details.reason === "update") {
       sendNotification(
         "更新検知",
-        `スターターキットが再読み込みされました\n\n${getNow('通知時間：YYYY年MM月DD HH時mm分')}`,
+        `スターターキットが再読み込みされました\n\n${getNow("通知時間：YYYY年MM月DD HH時mm分")}`,
         NOTIFICATION_PRIORITY.LOW,
-      )
+      );
     }
   },
 );
@@ -21,19 +22,19 @@ chrome.runtime.onInstalled.addListener(
 chrome.tabs.onActivated.addListener((): void => {
   chrome.contextMenus.removeAll();
   chrome.contextMenus.create({
-    title: 'ダッシュボードに移動',
-    contexts: ['all'],
-    id: 'dashboard',
+    title: "ダッシュボードに移動",
+    contexts: ["all"],
+    id: "dashboard",
   });
   chrome.contextMenus.create({
-    title: '設定に移動',
-    contexts: ['all'],
-    id: 'options',
+    title: "設定に移動",
+    contexts: ["all"],
+    id: "options",
   });
   chrome.contextMenus.create({
-    title: 'ウェルカムに移動',
-    contexts: ['all'],
-    id: 'welcome',
+    title: "ウェルカムに移動",
+    contexts: ["all"],
+    id: "welcome",
   });
 });
 
@@ -41,16 +42,18 @@ chrome.notifications.onClicked.addListener((): void => {
   moveDashboard();
 });
 
-chrome.contextMenus.onClicked.addListener((info: chrome.contextMenus.OnClickData): void => {
-  switch (info.menuItemId) {
-    case 'dashboard':
-      moveDashboard();
-      break;
-    case 'options':
-      moveOptions();
-      break;
-    case 'welcome':
-      moveWelcome();
-      break;
-  }
-});
+chrome.contextMenus.onClicked.addListener(
+  (info: chrome.contextMenus.OnClickData): void => {
+    switch (info.menuItemId) {
+      case "dashboard":
+        moveDashboard();
+        break;
+      case "options":
+        moveOptions();
+        break;
+      case "welcome":
+        moveWelcome();
+        break;
+    }
+  },
+);
